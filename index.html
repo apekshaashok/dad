@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Hero, Our Dad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f5f5f0;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-overlay {
+            background: rgba(34, 47, 62, 0.6);
+        }
+        .polaroid {
+            background: white;
+            padding: 15px 15px 60px 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: rotate(1deg);
+            transition: all 0.3s ease;
+        }
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .award-card {
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #f8f4e9 0%, #e8e0d1 100%);
+        }
+        .award-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .message-scroll {
+            background: url('https://i.imgur.com/YqQzJjU.png') center/cover no-repeat;
+            min-height: 300px;
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .masonry {
+            column-count: 3;
+            column-gap: 1em;
+        }
+        @media (max-width: 768px) {
+            .masonry {
+                column-count: 2;
+            }
+        }
+        @media (max-width: 480px) {
+            .masonry {
+                column-count: 1;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+   
+    <!-- Hero Section -->
+    <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div id="hero-slideshow" class="absolute inset-0">
+            <div class="absolute inset-0 bg-black opacity-40 z-10"></div>
+
+            <!-- Slideshow Images -->
+            <img src="p/p1.jpg" alt="Dad photo 1" class="absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-1000">
+            <img src="p/p2.jpg" alt="Dad photo 2" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
+            <img src="p/p3.jpg" alt="Dad photo 3" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
+            <img src="p/p4.jpg" alt="Dad photo 4" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
+            <img src="p/p5.jpg" alt="Dad photo 5" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
+            <img src="p/p6.jpg" alt="Dad photo 6" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
+            <img src="p/p7.jpg" alt="Dad photo 7" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
+            <img src="p/p8.jpg" alt="Dad photo 8" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000">
+        </div>
+
+        <!-- Hero Text -->
+        <div class="relative z-20 text-center px-4">
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-4 fade-in">Happy Birthday, Dad!</h1>
+            <p class="text-xl md:text-2xl text-white mb-8 fade-in">Celebrating the man who means the world to us</p>
+        </div>
+
+        <!-- Scroll Down Icon -->
+        <div class="absolute bottom-8 left-0 right-0 text-center z-20">
+            <a href="#about" class="text-white animate-bounce inline-block">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- JavaScript for Slideshow and Mobile Menu -->
+    <script>
+        const slides = document.querySelectorAll('#hero-slideshow img');
+        let current = 0;
+
+        setInterval(() => {
+            slides[current].classList.remove('opacity-100');
+            slides[current].classList.add('opacity-0');
+            current = (current + 1) % slides.length;
+            slides[current].classList.remove('opacity-0');
+            slides[current].classList.add('opacity-100');
+        }, 5000); // change slide every 5 seconds
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+    <!-- Optional Smooth Scroll CSS -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .fade-in {
+            animation: fadeIn 2s ease-in-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</body>
+
+<!-- Memories Gallery -->
+<section id="memories" class="py-20 bg-pink-50">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-pink-700 mb-4">Cherished Memories</h2>
+      <div class="w-24 h-1 bg-pink-400 mx-auto mb-6"></div>
+      <p class="text-xl text-pink-600 max-w-3xl mx-auto font-medium">A scrapbook of our warmest moments together 💖</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div class="bg-white p-3 rounded-xl shadow-lg transform rotate-[-3deg] hover:rotate-0 transition">
+        <img src="p/1.jpg" class="rounded-md shadow-md">
+      </div>
+      <div class="bg-white p-3 rounded-xl shadow-lg transform rotate-[2deg] hover:rotate-0 transition">
+        <img src="p/p10.jpg" class="rounded-md shadow-md">
+      </div>
+      <div class="bg-white p-3 rounded-xl shadow-lg transform rotate-[1deg] hover:rotate-0 transition">
+        <img src="p/2.jpg" class="rounded-md shadow-md">
+      </div>
+      <div class="bg-white p-3 rounded-xl shadow-lg transform rotate-[-2deg] hover:rotate-0 transition">
+        <img src="p/p11.jpg" class="rounded-md shadow-md">
+      </div>
+      <div class="bg-white p-3 rounded-xl shadow-lg transform rotate-[-1deg] hover:rotate-0 transition">
+        <img src="p/3.jpg" class="rounded-md shadow-md">
+      </div>
+      <div class="bg-white p-3 rounded-xl shadow-lg transform rotate-[3deg] hover:rotate-0 transition">
+        <img src="p/p12.jpg" class="rounded-md shadow-md">
+      </div>
+      <div class="bg-white p-3 rounded-xl shadow-lg transform rotate-[2deg] hover:rotate-0 transition">
+        <img src="p/4.jpg" class="rounded-md shadow-md">
+      </div>
+      <div class="bg-white p-3 rounded-xl shadow-lg transform rotate-[-3deg] hover:rotate-0 transition">
+        <img src="p/p13.jpg" class="rounded-md shadow-md">
+      </div>
+      <div class="bg-white p-3 rounded-xl shadow-lg transform rotate-[1deg] hover:rotate-0 transition">
+        <img src="p/5.jpg" class="rounded-md shadow-md">
+      </div>
+      <div class="bg-white p-3 rounded-xl shadow-lg transform rotate-[-1deg] hover:rotate-0 transition">
+        <img src="p/p14.jpg" class="rounded-md shadow-md">
+      </div>
+      <div class="bg-white p-3 rounded-xl shadow-lg transform rotate-[3deg] hover:rotate-0 transition">
+        <img src="p/6.jpg" class="rounded-md shadow-md">
+      </div>
+      <div class="bg-white p-3 rounded-xl shadow-lg transform rotate-[0deg] hover:rotate-0 transition">
+        <img src="p/p15.jpg" class="rounded-md shadow-md">
+      </div>
+      <div class="bg-white p-3 rounded-xl shadow-lg transform rotate-[-2deg] hover:rotate-0 transition">
+        <img src="p/7.jpg" class="rounded-md shadow-md">
+      </div>
+      <div class="bg-white p-3 rounded-xl shadow-lg transform rotate-[2deg] hover:rotate-0 transition">
+        <img src="p/p16.jpg" class="rounded-md shadow-md">
+      </div>
+      <div class="bg-white p-3 rounded-xl shadow-lg transform rotate-[1deg] hover:rotate-0 transition">
+        <img src="p/8.jpg" class="rounded-md shadow-md">
+      </div>
+      <div class="bg-white p-3 rounded-xl shadow-lg transform rotate-[-1deg] hover:rotate-0 transition">
+        <img src="p/p17.jpg" class="rounded-md shadow-md">
+      </div>
+      <div class="bg-white p-3 rounded-xl shadow-lg transform rotate-[2deg] hover:rotate-0 transition">
+        <img src="p/9.jpg" class="rounded-md shadow-md">
+      </div>
+      <div class="bg-white p-3 rounded-xl shadow-lg transform rotate-[-2deg] hover:rotate-0 transition">
+        <img src="p/10.jpg" class="rounded-md shadow-md">
+      </div>
+    </div>
+
+  
+  </div>
+</section>
+
+
+
+
+
+<section class="py-20 bg-pink-50">
+  <div class="max-w-4xl mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-pink-700 mb-4">How Well Do You Know Dad?</h2>
+      <div class="w-24 h-1 bg-pink-500 mx-auto mb-6"></div>
+      <p class="text-xl text-gray-700">Take this fun quiz to test your knowledge about our favorite guy!</p>
+    </div>
+
+    <div class="bg-white p-8 rounded-lg shadow-lg">
+      <form id="dad-quiz" class="space-y-10">
+        <div class="quiz-question">
+          <h3 class="text-xl font-bold text-pink-700 mb-4">1. What’s Dad most likely to be doing on a Sunday afternoon?</h3>
+          <div class="space-y-2">
+            <label class="flex items-center space-x-3">
+              <input type="radio" name="q1" value="a" class="h-5 w-5 text-pink-500">
+              <span>Napping 2 to 5 pm</span>
+            </label>
+            <label class="flex items-center space-x-3">
+              <input type="radio" name="q1" value="b" class="h-5 w-5 text-pink-500">
+              <span>Watching a movie</span>
+            </label>
+            <label class="flex items-center space-x-3">
+              <input type="radio" name="q1" value="c" class="h-5 w-5 text-pink-500">
+              <span>Reading a book</span>
+            </label>
+            <label class="flex items-center space-x-3">
+              <input type="radio" name="q1" value="d" class="h-5 w-5 text-pink-500">
+              <span>None of the above</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <h3 class="text-xl font-bold text-pink-700 mb-4">2. What’s Dad’s favorite food?</h3>
+          <div class="space-y-2">
+            <label class="flex items-center space-x-3">
+              <input type="radio" name="q2" value="a" class="h-5 w-5 text-pink-500">
+              <span>Biryani</span>
+            </label>
+            <label class="flex items-center space-x-3">
+              <input type="radio" name="q2" value="b" class="h-5 w-5 text-pink-500">
+              <span>Pizza</span>
+            </label>
+            <label class="flex items-center space-x-3">
+              <input type="radio" name="q2" value="c" class="h-5 w-5 text-pink-500">
+              <span>Chole Bathure</span>
+            </label>
+            <label class="flex items-center space-x-3">
+              <input type="radio" name="q2" value="d" class="h-5 w-5 text-pink-500">
+              <span>Chinese</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <h3 class="text-xl font-bold text-pink-700 mb-4">3. What superhero is Dad most like?</h3>
+          <div class="space-y-2">
+            <label class="flex items-center space-x-3">
+              <input type="radio" name="q3" value="a" class="h-5 w-5 text-pink-500">
+              <span>Iron Man</span>
+            </label>
+            <label class="flex items-center space-x-3">
+              <input type="radio" name="q3" value="b" class="h-5 w-5 text-pink-500">
+              <span>Superman</span>
+            </label>
+            <label class="flex items-center space-x-3">
+              <input type="radio" name="q3" value="c" class="h-5 w-5 text-pink-500">
+              <span>Batman</span>
+            </label>
+            <label class="flex items-center space-x-3">
+              <input type="radio" name="q3" value="d" class="h-5 w-5 text-pink-500">
+              <span>All of the above</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <h3 class="text-xl font-bold text-pink-700 mb-4">4. What kind of music does Dad secretly love?</h3>
+          <div class="space-y-2">
+            <label class="flex items-center space-x-3">
+              <input type="radio" name="q4" value="a" class="h-5 w-5 text-pink-500">
+              <span>Old Bollywood classics</span>
+            </label>
+            <label class="flex items-center space-x-3">
+              <input type="radio" name="q4" value="b" class="h-5 w-5 text-pink-500">
+              <span>Old Kannada songs</span>
+            </label>
+            <label class="flex items-center space-x-3">
+              <input type="radio" name="q4" value="c" class="h-5 w-5 text-pink-500">
+              <span>Devotional songs</span>
+            </label>
+            <label class="flex items-center space-x-3">
+              <input type="radio" name="q4" value="d" class="h-5 w-5 text-pink-500">
+              <span>Nowadays songs</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="quiz-question">
+          <h3 class="text-xl font-bold text-pink-700 mb-4">5. What’s Dad's “superpower”?</h3>
+          <div class="space-y-2">
+            <label class="flex items-center space-x-3">
+              <input type="radio" name="q5" value="a" class="h-5 w-5 text-pink-500">
+              <span>Fixing things with no tools</span>
+            </label>
+            <label class="flex items-center space-x-3">
+              <input type="radio" name="q5" value="b" class="h-5 w-5 text-pink-500">
+              <span>Staying calm under pressure</span>
+            </label>
+            <label class="flex items-center space-x-3">
+              <input type="radio" name="q5" value="c" class="h-5 w-5 text-pink-500">
+              <span>Reading minds</span>
+            </label>
+            <label class="flex items-center space-x-3">
+              <input type="radio" name="q5" value="d" class="h-5 w-5 text-pink-500">
+              <span>Always planning ahead and thinking of everyone</span>
+            </label>
+            <label class="flex items-center space-x-3">
+              <input type="radio" name="q5" value="e" class="h-5 w-5 text-pink-500">
+              <span>All of the above</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="text-center pt-4">
+          <button type="submit" class="bg-pink-600 hover:bg-pink-500 text-white px-8 py-3 rounded-full transition transform hover:scale-105">
+            Submit Answers <i class="fas fa-paper-plane ml-2"></i>
+          </button>
+        </div>
+      </form>
+
+      <div id="quiz-results" class="hidden mt-8 p-6 bg-pink-100 rounded-lg text-center">
+        <h3 class="text-2xl font-bold text-pink-700 mb-4">Quiz Results</h3>
+        <p id="result-text" class="text-xl mb-4"></p>
+        <div id="score-display" class="text-4xl font-bold text-pink-600 mb-6"></div>
+        <p id="result-message" class="text-lg"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const quizForm = document.getElementById('dad-quiz');
+  const resultContainer = document.getElementById('quiz-results');
+  const resultText = document.getElementById('result-text');
+  const scoreDisplay = document.getElementById('score-display');
+  const resultMessage = document.getElementById('result-message');
+
+  const correctAnswers = {
+    q1: 'a',
+    q2: 'c',
+    q3: 'd',
+    q4: 'b',
+    q5: 'e'
+  };
+
+  quizForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    let score = 0;
+    const total = Object.keys(correctAnswers).length;
+
+    for (const [question, answer] of Object.entries(correctAnswers)) {
+      const selected = quizForm.querySelector(`input[name="${question}"]:checked`);
+      if (selected && selected.value === answer) {
+        score++;
+      }
+    }
+
+    resultContainer.classList.remove('hidden');
+    resultText.textContent = `You got ${score} out of ${total} right! 🎉`;
+    scoreDisplay.textContent = `${score}/${total}`;
+
+    if (score === total) {
+      resultMessage.textContent = "Perfect! You know Dad so well! ❤️";
+    } else if (score >= total / 2) {
+      resultMessage.textContent = "Great job! You know quite a bit about Dad 😊";
+    } else {
+      resultMessage.textContent = "Still lots to learn about our amazing Dad! 💖";
+    }
+
+    window.scrollTo({
+      top: resultContainer.offsetTop - 100,
+      behavior: 'smooth'
+    });
+  });
+</script>
+
+    <!-- Dad's Awards -->
+<section class="py-20 bg-pink-50">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-pink-700 mb-4">Dad's Lifetime Achievements</h2>
+            <div class="w-24 h-1 bg-pink-400 mx-auto mb-6 rounded-full"></div>
+            <p class="text-xl text-pink-600 max-w-3xl mx-auto">Honoring the many ways he's made our lives better</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="award-card p-6 rounded-2xl shadow-md bg-white border border-pink-100">
+                <div class="text-center mb-4">
+                    <i class="fas fa-trophy text-5xl text-yellow-500 mb-3"></i>
+                    <h3 class="text-xl font-bold text-pink-700">One-Man Support System</h3>
+                </div>
+                <p class="text-pink-600">Awarded for being our constant source of strength, offering endless love, calm wisdom, quiet support, comforting hugs, and perfectly timed snacks, fruits, and sweets 😋.</p>
+            </div>
+
+            <div class="award-card p-6 rounded-2xl shadow-md bg-white border border-pink-100">
+                <div class="text-center mb-4">
+                    <i class="fas fa-shield-heart text-5xl text-red-400 mb-3"></i>
+                    <h3 class="text-xl font-bold text-pink-700">Silent Sacrifices</h3>
+                </div>
+                <p class="text-pink-600">Recognized for every unseen effort, late night, and quiet compromise made with love — never seeking praise, only our happiness and well-being.</p>
+            </div>
+
+            <div class="award-card p-6 rounded-2xl shadow-md bg-white border border-pink-100">
+                <div class="text-center mb-4">
+                    <i class="fas fa-car text-5xl text-pink-500 mb-3"></i>
+                    <h3 class="text-xl font-bold text-pink-700">The Calmest Driver in Chaos</h3>
+                </div>
+                <p class="text-pink-600">Honored for guiding every journey with patience, grace, and a smile — no matter how long the drive or how loud the backseat.</p>
+            </div>
+
+            <div class="award-card p-6 rounded-2xl shadow-md bg-white border border-pink-100">
+                <div class="text-center mb-4">
+                    <i class="fas fa-hand-holding-heart text-5xl text-pink-400 mb-3"></i>
+                    <h3 class="text-xl font-bold text-pink-700">Most Patient Teacher</h3>
+                </div>
+                <p class="text-pink-600">For endless hours spent teaching driving, math homework, and life lessons without ever losing his temper. His "try again" attitude shaped us all.</p>
+            </div>
+
+            <div class="award-card p-6 rounded-2xl shadow-md bg-white border border-pink-100">
+                <div class="text-center mb-4">
+                    <i class="fas fa-laugh-beam text-5xl text-purple-500 mb-3"></i>
+                    <h3 class="text-xl font-bold text-pink-700">King of Dad Jokes</h3>
+                </div>
+                <p class="text-pink-600">Awarded for his unmatched talent in delivering perfectly timed, groan-worthy puns — a true master whose jokes never get old.</p>
+            </div>
+
+            <div class="award-card p-6 rounded-2xl shadow-md bg-white border border-pink-100">
+                <div class="text-center mb-4">
+                    <i class="fas fa-heart text-5xl text-rose-400 mb-3"></i>
+                    <h3 class="text-xl font-bold text-pink-700">World's Best Dad</h3>
+                </div>
+                <p class="text-pink-600">The highest honor, awarded every single day for being our rock, our cheerleader, and our safe place to land. No trophy could truly capture what you mean to us.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Final Message -->
+<section class="py-20 bg-pink-50 text-pink-900">
+  <div class="max-w-4xl mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold mb-4 text-pink-700">A Letter to Dad</h2>
+      <div class="w-24 h-1 bg-pink-400 mx-auto mb-6"></div>
+    </div>
+
+    <div class="text-center mb-12">
+      <button
+        id="unfold-btn"
+        class="bg-gradient-to-r from-pink-400 to-pink-600 text-white px-8 py-4 rounded-full font-bold transform hover:scale-105 transition flex items-center mx-auto shadow-lg hover:shadow-pink-300/40"
+      >
+        <i class="fas fa-heart text-white mr-3 animate-pulse"></i>
+        Open With Love <i class="fas fa-arrow-down ml-3"></i>
+      </button>
+    </div>
+
+    <!-- Letter Content -->
+    <div
+      id="letter-content"
+      class="hidden bg-red-800 text-pink-200 p-8 rounded-lg animate-fade-in space-y-6 font-serif relative z-10 transition-all duration-700 shadow-lg"
+    >
+      <!-- Wax seal -->
+      <div class="absolute -bottom-8 -right-8 w-24 h-24 opacity-70">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="45" fill="#be123c" />
+          <text
+            x="50"
+            y="55"
+            font-family="Arial"
+            font-size="40"
+            fill="white"
+            text-anchor="middle"
+            dominant-baseline="middle"
+          >
+            D
+          </text>
+        </svg>
+      </div>
+
+      <div class="text-center">
+        <p class="text-2xl font-bold text-pink-100">Dear Dad,</p>
+      </div>
+
+      <div class="bg-white bg-opacity-10 p-6 rounded-lg mb-4 border-l-4 border-pink-300">
+        <p class="mb-4">
+          🎈 Today’s not just about celebrating your birthday — it’s about celebrating you. The one who’s been our steady hand, our voice of reason, our biggest fan, and the one who somehow always knows how to lift our spirits — whether it’s with a hug, some solid wisdom, or one of your classic dad jokes at just the right time.
+        </p>
+      </div>
+
+      <div class="bg-white bg-opacity-10 p-6 rounded-lg mb-4 border-l-4 border-yellow-300">
+        <p class="mb-4">
+          📚 You’ve given us more than just skills — not just how to ride a bike 🚲 or do math, but how to treat others
+          with kindness, stay determined through challenges, laugh even when things go wrong, and love with our whole hearts. 💖
+        </p>
+      </div>
+
+      <div class="bg-white bg-opacity-10 p-6 rounded-lg mb-4 border-l-4 border-green-300">
+        <p class="mb-4">
+          🌱 You've shown us what it means to be a good person - through your actions more than your words. Your
+          integrity at work, your kindness to others, your patience with us, your love for Mom - these are the
+          lessons that stick. 🌟
+        </p>
+      </div>
+
+      <div class="bg-white bg-opacity-10 p-6 rounded-lg mb-4 border-l-4 border-blue-300">
+        <p class="mb-4">
+          🎉 You are not just an amazing father, but a wonderful husband, a
+          loyal son, a hard worker, and an all-around great human being. We're so proud to be your family. 👨‍👩‍👧‍👦
+        </p>
+      </div>
+
+      <div class="bg-white bg-opacity-10 p-6 rounded-lg mb-4 border-l-4 border-purple-300">
+        <p class="mb-4">
+          💝 As you celebrate another year, we just want to say thank you — for the way you lead with kindness, find humor in everything, and show up no matter what. You've taught us to face life with grit, grace, and a good laugh — and we carry that with us every day.
+        </p>
+      </div>
+
+      <div class="text-center bg-pink-300 bg-opacity-40 p-6 rounded-full mx-auto max-w-md shadow-md">
+        <p class="text-2xl font-bold text-white">Happy birthday, Dad! 🎂</p>
+        <p class="text-xl text-pink-100">May this year bring you as much joy as you've brought to all of our lives. ❤️</p>
+      </div>
+
+      <div class="text-center mt-8">
+        <p class="text-xl italic text-pink-100">With all our love,</p>
+        <p class="text-2xl font-bold text-pink-100 mt-2">Your Family</p>
+        <div class="flex justify-center space-x-4 mt-4">
+          <i class="fas fa-heart text-pink-400 text-2xl"></i>
+          <i class="fas fa-heart text-pink-300 text-2xl"></i>
+          <i class="fas fa-heart text-pink-400 text-2xl"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reveal Letter Script -->
+<script>
+  document.getElementById("unfold-btn").addEventListener("click", function () {
+    const letter = document.getElementById("letter-content");
+    letter.classList.remove("hidden");
+    letter.classList.add("block");
+    this.innerHTML =
+      '<i class="fas fa-heart text-white mr-3 animate-pulse"></i> Letter Opened 💖';
+    this.classList.add("cursor-default", "opacity-80");
+    this.disabled = true;
+  });
+</script>
+
+<!-- Optional: Fade-in animation -->
+<style>
+  .animate-fade-in {
+    animation: fadeIn 1s ease-in-out;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+
+<!-- Fade-In Animation -->
+<style>
+  .animate-fade-in {
+    animation: fadeIn 1s ease-in-out;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+
+
+
+    <!-- Footer -->
+<footer class="bg-pink-100 text-pink-800 py-12">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <div class="mb-6 md:mb-0 text-center md:text-left">
+                <h3 class="text-2xl font-bold text-pink-600">Our Hero, Our Dad</h3>
+
+        <p class="text-pink-500 mt-2 text-lg italic">Thank you for everything you do — seen and unseen. We love you endlessly. 💗</p>
+      </div>
+    </div>
+    <div class="border-t border-pink-300 mt-8 pt-8 text-center text-sm text-pink-500">
+      Built with love, hugs, and a few dad jokes. 💞
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="fixed inset-0 bg-pink-900 bg-opacity-90 z-50 flex items-center justify-center hidden">
+  <div class="relative max-w-4xl w-full p-4">
+    <button id="close-lightbox" class="absolute -top-12 right-0 text-white text-3xl hover:text-pink-300 transition">
+      <i class="fas fa-times"></i>
+    </button>
+    <img id="lightbox-img" src="" alt="" class="max-h-screen w-full object-contain rounded-lg border-4 border-pink-300 shadow-lg">
+    <p id="lightbox-caption" class="text-pink-200 text-center mt-4 italic"></p>
+  </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+  // Hero slideshow
+  const heroSlides = document.querySelectorAll('#hero-slideshow img');
+  let currentSlide = 0;
+
+  function nextSlide() {
+    heroSlides[currentSlide].classList.remove('opacity-100');
+    heroSlides[currentSlide].classList.add('opacity-0');
+    currentSlide = (currentSlide + 1) % heroSlides.length;
+    heroSlides[currentSlide].classList.remove('opacity-0');
+    heroSlides[currentSlide].classList.add('opacity-100');
+  }
+
+  setInterval(nextSlide, 5000);
+
+  // Letter unfold
+  const unfoldBtn = document.getElementById('unfold-btn');
+  const letterContent = document.getElementById('letter-content');
+
+  if (unfoldBtn && letterContent) {
+    unfoldBtn.addEventListener('click', () => {
+      letterContent.classList.remove('hidden');
+      letterContent.classList.add('block', 'animate-fade-in');
+      unfoldBtn.innerHTML = '<i class="fas fa-heart text-white mr-3 animate-pulse"></i> Letter Opened 💖';
+      unfoldBtn.classList.add('cursor-default', 'opacity-80');
+      unfoldBtn.disabled = true;
+      letterContent.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  }
+
+  // Lightbox for gallery
+  const polaroids = document.querySelectorAll('.polaroid');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const closeLightbox = document.getElementById('close-lightbox');
+
+  if (polaroids && lightbox && lightboxImg && closeLightbox) {
+    polaroids.forEach(polaroid => {
+      polaroid.addEventListener('click', () => {
+        const img = polaroid.querySelector('img');
+        const caption = polaroid.querySelector('p')?.textContent || '';
+        lightboxImg.src = img.src;
+        lightboxCaption.textContent = caption;
+        lightbox.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    closeLightbox.addEventListener('click', () => {
+      lightbox.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    });
+  }
+
+  // Animation on scroll
+  function animateOnScroll() {
+    const elements = document.querySelectorAll('.fade-in, .timeline-item, .award-card, .quiz-question');
+    elements.forEach(element => {
+      const elementPosition = element.getBoundingClientRect().top;
+      const screenPosition = window.innerHeight / 1.3;
+      if (elementPosition < screenPosition) {
+        element.classList.add('animate__animated', 'animate__fadeInUp');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', animateOnScroll);
+  window.addEventListener('load', animateOnScroll);
+</script>
+
+<!-- Optional fade-in effect for letter -->
+<style>
+  .animate-fade-in {
+    animation: fadeIn 1s ease-in-out forwards;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  #unfold-btn:hover {
+    box-shadow: 0 0 15px #f472b6;
+  }
+</style>
